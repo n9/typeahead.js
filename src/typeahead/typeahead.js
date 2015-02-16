@@ -26,6 +26,7 @@ var Typeahead = (function() {
     this.autoselect = !!o.autoselect;
     this.minLength = _.isNumber(o.minLength) ? o.minLength : 1;
     this.$node = buildDom(o.input, o.withHint);
+    this.queryWhenOpened = !!o.queryWhenOpened;
 
     $menu = this.$node.find('.tt-dropdown-menu');
     $input = this.$node.find('.tt-input');
@@ -113,6 +114,11 @@ var Typeahead = (function() {
     },
 
     _onOpened: function onOpened() {
+      if (this.queryWhenOpened && !this.dropdown.isVisible()) {
+        var query = this.input.getQuery();
+        if (query.length >= this.minLength)
+          this.dropdown.update(query);
+      }
       this._updateHint();
 
       this.eventBus.trigger('opened');

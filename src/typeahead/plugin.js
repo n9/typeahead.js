@@ -38,6 +38,7 @@
           withHint: _.isUndefined(o.hint) ? true : !!o.hint,
           minLength: o.minLength,
           autoselect: o.autoselect,
+          queryWhenOpened: o.queryWhenOpened,
           datasets: datasets
         });
 
