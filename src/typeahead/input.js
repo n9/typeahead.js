@@ -279,13 +279,16 @@ var Input = (function() {
   // ----------------
 
   function buildOverflowHelper($input) {
-    return $('<pre aria-hidden="true"></pre>')
+    return $('<div aria-hidden="true"></div>')
     .css({
       // position helper off-screen
       position: 'absolute',
       visibility: 'hidden',
       // avoid line breaks and whitespace collapsing
       whiteSpace: 'pre',
+      // do not resize wrapping elements
+      top: '1px',
+      height: '1px',
       // use same font css as input to calculate accurate width
       fontFamily: $input.css('font-family'),
       fontSize: $input.css('font-size'),
