@@ -1126,10 +1126,12 @@
         });
         return Input;
         function buildOverflowHelper($input) {
-            return $('<pre aria-hidden="true"></pre>').css({
+            return $('<div aria-hidden="true"></div>').css({
                 position: "absolute",
                 visibility: "hidden",
                 whiteSpace: "pre",
+                top: "1px",
+                height: "1px",
                 fontFamily: $input.css("font-family"),
                 fontSize: $input.css("font-size"),
                 fontStyle: $input.css("font-style"),
